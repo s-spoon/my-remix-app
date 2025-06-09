@@ -1,68 +1,92 @@
-# Welcome to Remix!
+# Thinkific Multi-User Journal Assignment
 
-- [Remix Docs](https://remix.run/docs)
-- [Netlify Functions Overview](https://docs.netlify.com/functions/overview)
+## Getting Started
 
-## Netlify Setup
+### 1. Get to know project tech stack
 
-1. Install the [Netlify CLI](https://docs.netlify.com/cli/get-started/):
+This simple project is a starting point for your take-home test. It is built with the following technologies:
 
-```sh
-npm i -g netlify-cli
+- [React](https://reactjs.org/), a JavaScript library for building user interfaces
+- [Next.js](https://nextjs.org/), a frontend framework for server-side rendering, easy routing, serverless RESTful API
+- [Prisma](https://www.prisma.io/), a database ORM for Node.js
+  - Scaffolding is set up for SQLite
+  - You are free to use other databases of your choice
+
+### 2. Install npm dependencies
+
 ```
-
-If you have previously installed the Netlify CLI, you should update it to the latest version:
-
-```sh
-npm i -g netlify-cli@latest
-```
-
-2. Sign up and log in to Netlify:
-
-```sh
-netlify login
-```
-
-3. Create a new site:
-
-```sh
-netlify init
-```
-
-## Development
-
-Ensure all packages are installed by running:
-
-```sh
 npm install
 ```
 
-Run
+### 3. Create .env file
 
-```sh
-netlify dev
+```
+cp .env.example .env
 ```
 
-Open up [http://localhost:8888](http://localhost:8888), and you're ready to go!
+### 4. Prepare DB
 
-### Serve your site locally
+Create a local SQLite database and run migrations.
 
-To serve your site locally in a production-like environment, run
-
-```sh
-netlify serve
+```
+npx prisma migrate dev --name init
 ```
 
-Your site will be available at [http://localhost:8888](http://localhost:8888). Note that it will not auto-reload when you make changes.
+Seed the database with the sample data from [`prisma/seed.js`](./prisma/seed.js).
 
-## Deployment
-
-There are two ways to deploy your app to Netlify, you can either link your app to your git repo and have it auto deploy changes to Netlify, or you can deploy your app manually. If you've followed the setup instructions already, all you need to do is run this:
-
-```sh
-# preview deployment
-netlify deploy --build
-
-# production deployment
-netlify deploy --build --prod
 ```
+npx prisma db seed
+```
+
+### 5. Start the app
+
+```
+npm run dev
+```
+
+The app is now running, navigate to [`http://localhost:3000/`](http://localhost:3000/) in your browser to explore its UI.
+
+## Submission
+
+Update this README file by answering the questions below.
+
+### Date Or Reflection
+
+The date you're submitting this.
+A:
+
+### Location of deployed application (not necessary for Junior Engineers)
+
+Please provide the url where we can find and interact with your running application.
+
+### Instructions to run assignment locally
+
+Please provide us with the necessary instructions to run your solution if it is implemented with technologies different from the starting repo.
+
+### Time spent
+
+How much time did you spend on the assignment? Normally, this is expressed in hours.
+
+### Assumptions made
+
+Use this section to tell us about any assumptions that you made when creating your solution.
+
+### Shortcuts/Compromises made
+
+If applicable. Did you do something that you feel could have been done better in a real-world application? Please let us know.
+
+### Assume your application will go into production...
+
+#### 1) What would be your approach to ensuring the application is ready for production (testing)?
+
+#### 2) How would you ensure a smooth user experience as 1000’s of users start using your app simultaneously?
+
+#### 3) What key steps would you take to ensure application security?
+
+### What did you not include in your solution that you want us to know about? Were you short on time and not able to include something that you want us to know about? Please list it here so that we know that you considered it.
+
+### Other information about your submission that you feel it's important that we know if applicable.
+
+### Your feedback on this technical challenge
+
+Have feedback for how we could make this assignment better? Please let us know.

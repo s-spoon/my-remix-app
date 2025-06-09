@@ -1,3 +1,6 @@
+[functions]
+included_files = ["node_modules/.prisma/**", "node_modules/@prisma/**", "prisma/schema.prisma", "prisma/dev.db"]
+
 [build]
 command = "npm run build"
 publish = "build/client"
@@ -14,3 +17,5 @@ for = "/build/*"
 [headers.values]
 
 "Cache-Control" = "public, max-age=31560000, immutable"
+
+

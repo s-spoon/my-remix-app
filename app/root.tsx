@@ -5,8 +5,10 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
+import { Layout } from "./components/Layout";
+import "./tailwind.css";
 
-export default function App() {
+export function Document({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <head>
@@ -16,10 +18,20 @@ export default function App() {
         <Links />
       </head>
       <body>
-        <Outlet />
+        {children}
         <ScrollRestoration />
         <Scripts />
       </body>
     </html>
+  );
+}
+
+export default function App() {
+  return (
+    <Document>
+      <Layout>
+        <Outlet />
+      </Layout>
+    </Document>
   );
 }
